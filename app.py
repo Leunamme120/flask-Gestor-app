@@ -3,7 +3,9 @@ import sqlite3
 import os
 
 app = Flask(__name__)
-DB_NAME = "tareas.db"
+
+# Guardar la base de datos en /tmp (carpeta permitida en OpenShift)
+DB_NAME = os.path.join("/tmp", "tareas.db")
 
 # --- Crear base de datos si no existe ---
 def init_db():
@@ -22,6 +24,7 @@ def init_db():
 # --- Página principal: lista de tareas ---
 @app.route('/')
 def index():
+    init_db()  # Asegura que la DB existe antes de usarla
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
     c.execute("SELECT * FROM tareas")
@@ -104,3 +107,5 @@ def eliminar(id):
 if __name__ == '__main__':
     init_db()
     app.run(host='0.0.0.0', port=8080)
+
+
