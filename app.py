@@ -33,7 +33,7 @@ def index():
     return render_template_string('''
         <html>
         <head>
-            <title>Gestor de Tareas Flask</title>
+            <title>Adminstrador de Tareas</title>
             <style>
                 body { font-family: Arial; background: #f9f9f9; padding: 20px; }
                 table { width: 100%; border-collapse: collapse; margin-top: 20px; }
@@ -107,6 +107,7 @@ def eliminar(id):
 if __name__ == '__main__':
     init_db()
     app.run(host='0.0.0.0', port=8080)
+
 
 
 
