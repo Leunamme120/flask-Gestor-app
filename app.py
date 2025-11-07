@@ -47,7 +47,7 @@ def index():
             </style>
         </head>
         <body>
-            <h1>📋 Gestor de Tareas Flask</h1>
+            <h1>Administrador de Tareas</h1>
             <form method="POST" action="/agregar">
                 <input type="text" name="titulo" placeholder="Título de la tarea" required>
                 <textarea name="descripcion" placeholder="Descripción"></textarea>
@@ -107,5 +107,6 @@ def eliminar(id):
 if __name__ == '__main__':
     init_db()
     app.run(host='0.0.0.0', port=8080)
+
 
 
